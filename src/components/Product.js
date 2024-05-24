@@ -11,29 +11,28 @@ const MAX_RATING = 5;
 const MIN_RATING = 1;
 
 function Product({ id, title, price, description, category, image }) {
-const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
 
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
   const [hasPrime] = useState(Math.random() < 0.5);
 
-const addItemToBasket = () => {
-const product = {
-  id,
-  title,
-  price,
-  rating,
-  description,
-  category,
-  image,
-  hasPrime,
-};
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      rating,
+      description,
+      category,
+      image,
+      hasPrime,
+    };
 
-//Sending the product as an action to the Redux Store
-dispatch(addToBasket(product));
-};
+    //Sending the product as an action to the Redux Store
+    dispatch(addToBasket(product));
+  };
 
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">
@@ -41,7 +40,7 @@ dispatch(addToBasket(product));
         {category}
       </p>
       <Image src={image} height={200} width={200} objectFit="contain" />
-      <h4 classname="my-3">{title}</h4>
+      <h4 className="my-3">{title}</h4>
 
       <div className="flex">
         {Array(rating)
@@ -58,12 +57,14 @@ dispatch(addToBasket(product));
       {hasPrime && (
         <div className="flex items-center space-x-2 -mt-5">
           <div className="w-12">
-            <Image src={primeTag} fill />
+            <Image src={primeTag} fill="true" />
           </div>
           <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
         </div>
       )}
-      <button onClick={addItemToBasket} className="mt-auto button">Add to Basket</button>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to Basket
+      </button>
     </div>
   );
 }
