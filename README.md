@@ -1,10 +1,11 @@
 # Amazon
-
-NEXT.JS 
-ReactJS
+Lessons Learned:
+Next.js (SSR)
+Redux
+Tailwind CSS
+NextAuth Authentication
+API (Fake Store API)
+React.js
 Webhooks
-Stripe Checkout
-Firestore
-NextAuth
-Vercel
-Tailwind
+Stripe
+Firebase
