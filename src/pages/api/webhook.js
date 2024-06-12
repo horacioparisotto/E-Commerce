@@ -32,7 +32,7 @@ const fulfillOrder = async (session) => {
     .then(() => {
       console.log(`SUCCESS: Order ${session.id} has been added to the DB`);
     })
-    .catch(console.log);
+    .catch((e) => console.log("firestore store error", e));
 };
 
 export default async (req, res) => {
@@ -42,6 +42,8 @@ export default async (req, res) => {
     const sig = req.headers["stripe-signature"];
 
     let event;
+
+    console.log({ sig, endpointSecret });
 
     try {
       event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
