@@ -1,7 +1,6 @@
 import { buffer } from "micro";
+import { config as serviceAccount } from "../../../permissions";
 import * as admin from "firebase-admin";
-
-var serviceAccount = require("../../../permissions.json");
 
 const app = !admin.apps.length
   ? admin.initializeApp({
